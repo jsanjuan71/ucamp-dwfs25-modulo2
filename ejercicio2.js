@@ -20,7 +20,13 @@ function manejoTienda( inventario ) {
     }
 
     function obtenerPorNombre(nombre) {
-        //
+        // Obtener el producto con el nombre que se recibe como parametro
+        for(const producto of inventario) {
+            if( producto.nombre === nombre ) {
+                return producto
+            }
+        }
+        return null
     }
 
     function mostrarInventario() {
@@ -28,6 +34,17 @@ function manejoTienda( inventario ) {
             console.log( posicion + 1 +"-", elemento)
         } )
 
+    }
+
+    function eliminarProducto(nombre) {
+        // Elminar el producto con el nombre que se recibe como parametro
+        const producto = obtenerPorNombre(nombre)
+        if( producto ) {
+            const posicion = inventario.indexOf( producto )
+            inventario.splice( posicion, 1 )
+        } else {
+            console.warn( "No se encontro el producto" )
+        }
     }
 
     function limpiarPelo() {
@@ -52,15 +69,8 @@ function manejoTienda( inventario ) {
         "agregarProducto": agregarProducto,
         "calcularValorTotal": calcularValorTotal,
         "mostrarInventario": mostrarInventario,
-        "asearMascota": asearMascota
-    }
-
-    const estatura = 171
-
-    return {
-        "nombre" :  "julio",
-        "edad" : 32,
-        "estatura" : estatura
+        "asearMascota": asearMascota,
+        eliminarProducto
     }
 }
 
@@ -101,7 +111,20 @@ tienda.agregarProducto(3)
 
 tienda.mostrarInventario()
 
+console.log( "Eliminar el producto: celular" )
+tienda.eliminarProducto("celular")
 
+tienda.mostrarInventario()
+
+console.log( "Agregar el producto: laptop" )
+tienda.agregarProducto({
+    nombre: 'laptop',
+    precio: 20000,
+    existensia: 1,
+    categoria: "computacion"
+})
+
+tienda.mostrarInventario()
 
 
 
