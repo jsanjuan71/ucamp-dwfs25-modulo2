@@ -1,0 +1,23 @@
+
+
+#identificador_unica{
+    color: pink
+}
+
+.remarcado {
+    background-color: yellow;
+}
+
+p {
+    border: dotted red 5px
+} 
+
+p.subrayado{
+    text-decoration: line-through;
+}
+
+/*
+a_quien(es) {
+    a_que_propìedad: con_que_valor
+} 
+*/
