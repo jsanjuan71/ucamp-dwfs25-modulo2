@@ -35,12 +35,21 @@ p.w200{
 }
 
 .container{
-    display:inline-flex;
     margin-bottom: 20px;
+    border: solid saddlebrown 1px;
 }
 
 .container section {
+    display: inline-block;
     background-color: bisque;
+    margin: .5em 1em;
+    transition-duration: .5s;
+}
+
+.container section:hover{
+    transform: rotate(-3deg) scale(1.2) ;
+    transition-duration: .5s;
+    border-color: green;
 }
 
 /* TRAVERSING */ 
@@ -58,6 +67,7 @@ p.w200{
     padding-right: 5px;
     padding-left: 5px;
     padding: 0px 15px;
+    width: 1000px;
 }
 
 .boton:hover {
